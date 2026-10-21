@@ -8,11 +8,13 @@ const Navbar = () => {
       <NavLink to="/" className="text-xl font-bold">
         UNFAZED
       </NavLink>
-      <ul className="hidden items-center gap-6 font-medium md:flex">
+      <ul className="flex flex-wrap items-center justify-center gap-3 text-xs font-medium sm:gap-5 sm:text-sm">
         <li className="py-1"><NavLink to="/">HOME</NavLink></li>
         <li className="py-1"><NavLink to="/doctors">DOCTORS</NavLink></li>
         <li className="py-1"><NavLink to="/about">ABOUT</NavLink></li>
         <li className="py-1"><NavLink to="/contact">CONTACT</NavLink></li>
+        <li className="py-1"><NavLink to="/my-appointments">APPOINTMENTS</NavLink></li>
+        <li className="py-1"><NavLink to="/my-profile">PROFILE</NavLink></li>
       </ul>
       <div className="flex items-center gap-4">
         <button
