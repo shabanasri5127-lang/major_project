@@ -48,6 +48,39 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    speciality: {
+      type: String,
+      default: "",
+    },
+    qualification: {
+      type: String,
+      default: "",
+    },
+    languages: {
+      type: [String],
+      default: [],
+    },
+    hospital: {
+      type: String,
+      default: "",
+    },
+    bio: {
+      type: String,
+      default: "",
+    },
+    experience: {
+      type: String,
+      default: "",
+    },
+    fees: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+    availability: {
+      type: [String],
+      default: [],
+    },
   },
   {
     timestamps: true,

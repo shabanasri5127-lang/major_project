@@ -12,8 +12,8 @@ export default function Banner() {
 					overflow: hidden;
 					padding: clamp(32px, 8vw, 96px);
 					border-radius: 24px;
-					background: #151711;
-					color: #f7f7f1;
+					background: #0c5260;
+					color: #f7fbfc;
 					font-family: inherit;
 					isolation: isolate;
 				}
@@ -25,16 +25,16 @@ export default function Banner() {
 					right: -115px;
 					width: 430px;
 					aspect-ratio: 1;
-					border: 1px solid rgba(213, 255, 91, .28);
+					border: 1px solid rgba(166, 229, 229, .24);
 					border-radius: 50%;
 					content: "";
 					transform: translateY(-50%);
 				}
-				.unfazed-hero::after { width: 330px; border-color: rgba(213, 255, 91, .18); }
+				.unfazed-hero::after { width: 330px; border-color: rgba(166, 229, 229, .16); }
 				.unfazed-hero-content { max-width: 700px; }
 				.unfazed-hero-kicker {
 					margin: 0 0 22px;
-					color: #d5ff5b;
+					color: #9fe1df;
 					font-size: 12px;
 					font-weight: 700;
 					letter-spacing: .18em;
@@ -47,7 +47,7 @@ export default function Banner() {
 					letter-spacing: -.07em;
 					line-height: .96;
 				}
-				.unfazed-hero-title span { color: #d5ff5b; }
+				.unfazed-hero-title span { color: #9fe1df; }
 				.unfazed-hero-description {
 					max-width: 420px;
 					margin: 24px 0 30px;
@@ -62,14 +62,14 @@ export default function Banner() {
 					gap: 12px;
 					padding: 0 22px;
 					border-radius: 999px;
-					background: #d5ff5b;
-					color: #151711;
+					background: #9fe1df;
+					color: #103d4b;
 					font-size: 14px;
 					font-weight: 700;
 					text-decoration: none;
 					transition: transform .2s ease, background .2s ease;
 				}
-				.unfazed-hero-link:hover { transform: translateY(-2px); background: #e2ff8a; }
+				.unfazed-hero-link:hover { transform: translateY(-2px); background: #c3f1ef; }
 				@media (max-width: 600px) {
 					.unfazed-hero { min-height: 420px; padding: 36px 26px; }
 					.unfazed-hero::before, .unfazed-hero::after { right: -300px; }

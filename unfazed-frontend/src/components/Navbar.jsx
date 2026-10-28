@@ -1,30 +1,63 @@
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/useAuth'
+import LogoutButton from './LogoutButton'
 
 const Navbar = () => {
   const navigate = useNavigate()
+  const { user } = useAuth()
+  const links = user?.role === 'doctor'
+    ? [
+        ['HOME', '/doctor-dashboard'],
+        ['DOCTOR PROFILE', '/my-profile'],
+        ["TODAY'S APPOINTMENTS", '/doctor-dashboard#appointments'],
+        ['PATIENT LIST', '/doctor-dashboard#patients'],
+        ['AVAILABILITY', '/doctor-dashboard#availability'],
+        ['SETTINGS', '/doctor-settings'],
+      ]
+    : user
+      ? [
+          ['HOME', '/patient-dashboard'],
+          ['MY PROFILE', '/my-profile'],
+          ['DOCTORS LIST', '/doctors'],
+          ['BOOK APPOINTMENT', '/doctors'],
+          ['MY APPOINTMENTS', '/my-appointments'],
+          ['PAYMENTS', '/patient-payments'],
+          ['SETTINGS', '/my-profile'],
+        ]
+      : [
+          ['HOME', '/'],
+          ['DOCTORS', '/doctors'],
+          ['ABOUT', '/about'],
+          ['CONTACT', '/contact'],
+        ]
 
   return (
-    <nav className="mb-5 flex items-center justify-between border-b border-gray-300 py-4">
-      <NavLink to="/" className="text-xl font-bold">
-        UNFAZED
+    <nav className="site-navbar">
+      <NavLink to="/" className="brand-link">
+        <span className="brand-mark" aria-hidden="true">+</span>
+        <span>UNFAZED<span className="ml-1 font-medium text-slate-400">CARE</span></span>
       </NavLink>
-      <ul className="flex flex-wrap items-center justify-center gap-3 text-xs font-medium sm:gap-5 sm:text-sm">
-        <li className="py-1"><NavLink to="/">HOME</NavLink></li>
-        <li className="py-1"><NavLink to="/doctors">DOCTORS</NavLink></li>
-        <li className="py-1"><NavLink to="/about">ABOUT</NavLink></li>
-        <li className="py-1"><NavLink to="/contact">CONTACT</NavLink></li>
-        <li className="py-1"><NavLink to="/my-appointments">APPOINTMENTS</NavLink></li>
-        <li className="py-1"><NavLink to="/my-profile">PROFILE</NavLink></li>
+      <ul className="site-links">
+        {links.map(([label, path]) => (
+          <li key={`${label}-${path}`} className="py-1"><NavLink to={path}>{label}</NavLink></li>
+        ))}
       </ul>
       <div className="flex items-center gap-4">
-        <button
-          id="button-login"
-          type="button"
-          onClick={() => navigate('/login')}
-          className="rounded-full bg-primary px-6 py-2 text-sm font-medium text-black transition hover:bg-primary/80"
-        >
-          LOGIN | SIGN UP
-        </button>
+        {user ? (
+          <div className="flex items-center gap-3">
+            <span className="hidden text-sm font-semibold text-slate-600 sm:inline">{user.name}</span>
+            <LogoutButton className="button-secondary text-sm">Log out</LogoutButton>
+          </div>
+        ) : (
+          <button
+            id="button-login"
+            type="button"
+            onClick={() => navigate('/login')}
+            className="button-primary text-sm"
+          >
+            LOGIN | SIGN UP
+          </button>
+        )}
       </div>
     </nav>
   )

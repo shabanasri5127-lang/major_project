@@ -13,10 +13,10 @@ const SpecialtyMenu = () => {
           <Link
             key={speciality}
             to={`/doctors/${encodeURIComponent(speciality)}`}
-            className="flex flex-col items-center gap-3 rounded-xl border p-5 text-center transition hover:-translate-y-1 hover:shadow-lg"
+            className="flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition hover:-translate-y-1 hover:border-teal-200 hover:shadow-lg"
           >
             <img src={image} alt="" className="h-16 w-16 object-contain" />
-            <span>{speciality}</span>
+            <span className="text-sm font-semibold text-slate-700">{speciality}</span>
           </Link>
         ))}
       </div>

@@ -1,0 +1,574 @@
+.payment-page {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 31px clamp(20px, 3vw, 42px) 42px;
+  color: #19394d;
+}
+
+.doctor-portal-shell .payment-page {
+  --payment-bg: #0b1220;
+  --payment-surface: rgba(18, 30, 48, .9);
+  --payment-line: rgba(148, 163, 184, .14);
+  --payment-ink: #e7eef9;
+  --payment-muted: #93a2b6;
+  --payment-accent: #60a5fa;
+  color: var(--payment-ink);
+}
+
+.payment-page-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.payment-eyebrow,
+.payment-section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #438d9d;
+  font-size: 8px;
+  font-weight: 750;
+  letter-spacing: .13em;
+}
+
+.doctor-portal-shell .payment-eyebrow,
+.doctor-portal-shell .payment-section-kicker {
+  color: #80a9d8;
+}
+
+.payment-page-heading h1 {
+  margin: 8px 0 6px;
+  color: #193b51;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 730;
+  letter-spacing: -.045em;
+}
+
+.doctor-portal-shell .payment-page-heading h1 {
+  color: #edf4ff;
+}
+
+.payment-page-heading p {
+  margin: 0;
+  color: #758b99;
+  font-size: 10px;
+}
+
+.doctor-portal-shell .payment-page-heading p {
+  color: #92a1b5;
+}
+
+.payment-back-link {
+  display: inline-flex;
+  min-height: 36px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #dfe9ef;
+  border-radius: 9px;
+  background: #fff;
+  padding: 0 11px;
+  color: #4a7187;
+  font-size: 9px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.payment-back-link:hover {
+  border-color: #bedbe9;
+  background: #f3f9fc;
+  color: #2778a5;
+}
+
+.doctor-portal-shell .payment-back-link {
+  border-color: var(--payment-line);
+  background: rgba(255, 255, 255, .035);
+  color: #bfd0e6;
+}
+
+.payment-demo-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-bottom: 16px;
+  border: 1px solid #dbeaf2;
+  border-radius: 11px;
+  background: #f4faff;
+  padding: 11px 13px;
+  color: #527187;
+  font-size: 9px;
+  line-height: 1.65;
+}
+
+.payment-demo-notice > svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: #4283ab;
+}
+
+.payment-demo-notice strong {
+  margin-right: 4px;
+  color: #315a73;
+}
+
+.doctor-portal-shell .payment-demo-notice {
+  border-color: rgba(96, 165, 250, .19);
+  background: rgba(59, 130, 246, .08);
+  color: #a9bdd5;
+}
+
+.doctor-portal-shell .payment-demo-notice > svg,
+.doctor-portal-shell .payment-demo-notice strong {
+  color: #93c5fd;
+}
+
+.payment-error {
+  margin: 0 0 15px;
+  border: 1px solid #f0d7d4;
+  border-radius: 9px;
+  background: #fff7f5;
+  padding: 10px 12px;
+  color: #a84c46;
+  font-size: 10px;
+}
+
+.payment-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+  margin-bottom: 17px;
+}
+
+.payment-summary-card,
+.payment-table-card,
+.payment-footnote {
+  border: 1px solid #e1eaf0;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(37, 73, 94, .05);
+}
+
+.payment-summary-card {
+  display: grid;
+  min-width: 0;
+  justify-items: start;
+  padding: 16px;
+}
+
+.payment-summary-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+}
+
+.payment-summary-icon.blue {
+  background: #eef6fd;
+  color: #3b83b9;
+}
+
+.payment-summary-icon.teal {
+  background: #eaf8f6;
+  color: #238d87;
+}
+
+.payment-summary-icon.green {
+  background: #eff8f2;
+  color: #3c9362;
+}
+
+.payment-summary-card small {
+  margin-top: 13px;
+  color: #718797;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.payment-summary-card > strong {
+  margin-top: 4px;
+  color: #294d62;
+  font-size: 23px;
+  font-weight: 730;
+  letter-spacing: -.04em;
+}
+
+.payment-summary-card > span:last-child {
+  margin-top: 4px;
+  color: #8799a5;
+  font-size: 8px;
+}
+
+.doctor-portal-shell .payment-summary-card,
+.doctor-portal-shell .payment-table-card,
+.doctor-portal-shell .payment-footnote {
+  border-color: var(--payment-line);
+  background: var(--payment-surface);
+  box-shadow: 0 12px 30px rgba(1, 8, 20, .2);
+}
+
+.doctor-portal-shell .payment-summary-card small,
+.doctor-portal-shell .payment-summary-card > span:last-child {
+  color: #95a5b8;
+}
+
+.doctor-portal-shell .payment-summary-card > strong {
+  color: #e8f1ff;
+}
+
+.doctor-portal-shell.theme-light .payment-page {
+  --payment-bg: #f3f7fb;
+  --payment-surface: #fff;
+  --payment-line: #e1eaf0;
+  --payment-ink: #19394d;
+  --payment-muted: #718797;
+  --payment-accent: #287eb4;
+  color: var(--payment-ink);
+}
+
+.doctor-portal-shell.theme-light .payment-page-heading h1 {
+  color: #193b51;
+}
+
+.doctor-portal-shell.theme-light .payment-page-heading p,
+.doctor-portal-shell.theme-light .payment-summary-card small,
+.doctor-portal-shell.theme-light .payment-summary-card > span:last-child {
+  color: #758b99;
+}
+
+.doctor-portal-shell.theme-light .payment-summary-card,
+.doctor-portal-shell.theme-light .payment-table-card,
+.doctor-portal-shell.theme-light .payment-footnote {
+  border-color: #e1eaf0;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(37, 73, 94, .05);
+}
+
+.doctor-portal-shell.theme-light .payment-summary-card > strong {
+  color: #294d62;
+}
+
+.doctor-portal-shell.theme-light .payment-demo-notice {
+  border-color: #dbeaf2;
+  background: #f4faff;
+  color: #527187;
+}
+
+.doctor-portal-shell.theme-light .payment-demo-notice > svg,
+.doctor-portal-shell.theme-light .payment-demo-notice strong {
+  color: #4283ab;
+}
+
+.payment-table-card {
+  min-width: 0;
+  padding: 19px;
+}
+
+.payment-table-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.payment-table-heading h2 {
+  margin: 4px 0 0;
+  color: #24465b;
+  font-size: 14px;
+  font-weight: 680;
+}
+
+.doctor-portal-shell .payment-table-heading h2 {
+  color: #e4eefc;
+}
+
+.doctor-portal-shell.theme-light .payment-table-heading h2 {
+  color: #24465b;
+}
+
+.payment-sample-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e1eaf0;
+  border-radius: 18px;
+  background: #f8fbfd;
+  padding: 6px 9px;
+  color: #6d8493;
+  font-size: 8px;
+  font-weight: 650;
+}
+
+.doctor-portal-shell .payment-sample-tag {
+  border-color: var(--payment-line);
+  background: rgba(255, 255, 255, .035);
+  color: #a6b8ce;
+}
+
+.doctor-portal-shell.theme-light .payment-sample-tag {
+  border-color: #e1eaf0;
+  background: #f8fbfd;
+  color: #6d8493;
+}
+
+.payment-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.payment-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.payment-table th {
+  border-bottom: 1px solid #eaf0f4;
+  padding: 0 10px 11px;
+  color: #8294a0;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.payment-table td {
+  border-bottom: 1px solid #edf2f5;
+  padding: 12px 10px;
+  color: #637d8d;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.payment-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.payment-table td:first-child {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.payment-doctor-avatar {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+  place-items: center;
+  border: 1px solid #dce9ef;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #e1f0f3, #d2e6ee);
+  color: #28748a;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.payment-provider {
+  display: grid;
+  gap: 4px;
+}
+
+.payment-provider strong {
+  color: #31546a;
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.payment-provider small {
+  color: #8799a5;
+  font-size: 8px;
+}
+
+.payment-table code {
+  border-radius: 5px;
+  background: #f3f7fa;
+  padding: 4px 6px;
+  color: #718898;
+  font-size: 8px;
+}
+
+.payment-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  padding: 5px 8px;
+  font-size: 8px;
+  font-weight: 650;
+  text-transform: capitalize;
+}
+
+.payment-paid {
+  border-color: #d2ebdb;
+  background: #eff9f2;
+  color: #37815a;
+}
+
+.payment-pending {
+  border-color: #f2e3c6;
+  background: #fff9eb;
+  color: #a1762d;
+}
+
+.payment-refunded {
+  border-color: #dde6ef;
+  background: #f2f6fa;
+  color: #637c90;
+}
+
+.payment-table .amount-cell {
+  color: #315268;
+  font-weight: 700;
+  text-align: right;
+}
+
+.doctor-portal-shell .payment-table th {
+  border-color: rgba(148, 163, 184, .12);
+  color: #8698ae;
+}
+
+.doctor-portal-shell .payment-table td {
+  border-color: rgba(148, 163, 184, .09);
+  color: #a9bad0;
+}
+
+.doctor-portal-shell .payment-provider strong,
+.doctor-portal-shell .payment-table .amount-cell {
+  color: #d9e7f8;
+}
+
+.doctor-portal-shell .payment-provider small {
+  color: #8798ad;
+}
+
+.doctor-portal-shell .payment-table code {
+  background: rgba(148, 163, 184, .08);
+  color: #a1b2c7;
+}
+
+.doctor-portal-shell.theme-light .payment-table th {
+  border-color: #eaf0f4;
+  color: #8294a0;
+}
+
+.doctor-portal-shell.theme-light .payment-table td {
+  border-color: #edf2f5;
+  color: #637d8d;
+}
+
+.doctor-portal-shell.theme-light .payment-provider strong,
+.doctor-portal-shell.theme-light .payment-table .amount-cell {
+  color: #315268;
+}
+
+.doctor-portal-shell.theme-light .payment-provider small {
+  color: #8799a5;
+}
+
+.doctor-portal-shell.theme-light .payment-table code {
+  background: #f3f7fa;
+  color: #718898;
+}
+
+.payment-footnote {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 14px 16px;
+}
+
+.payment-footnote > span {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border-radius: 9px;
+  background: #f0f6fb;
+  color: #5b86a3;
+}
+
+.payment-footnote strong {
+  color: #45677c;
+  font-size: 9px;
+}
+
+.payment-footnote p {
+  margin: 4px 0 0;
+  color: #80929f;
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+.doctor-portal-shell .payment-footnote > span {
+  background: rgba(59, 130, 246, .12);
+  color: #93c5fd;
+}
+
+.doctor-portal-shell .payment-footnote strong {
+  color: #c1d3e8;
+}
+
+.doctor-portal-shell .payment-footnote p {
+  color: #91a1b5;
+}
+
+.doctor-portal-shell.theme-light .payment-footnote > span {
+  background: #f0f6fb;
+  color: #5b86a3;
+}
+
+.doctor-portal-shell.theme-light .payment-footnote strong {
+  color: #45677c;
+}
+
+.doctor-portal-shell.theme-light .payment-footnote p {
+  color: #80929f;
+}
+
+@media (max-width: 720px) {
+  .payment-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-summary-card {
+    grid-template-columns: 36px minmax(0, 1fr);
+    column-gap: 11px;
+    align-items: center;
+  }
+
+  .payment-summary-icon {
+    grid-row: span 3;
+  }
+
+  .payment-summary-card small,
+  .payment-summary-card > strong,
+  .payment-summary-card > span:last-child {
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-page {
+    padding: 23px 15px 32px;
+  }
+
+  .payment-page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .payment-table-card {
+    padding: 15px;
+  }
+}

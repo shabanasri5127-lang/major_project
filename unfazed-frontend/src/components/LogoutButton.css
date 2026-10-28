@@ -1,0 +1,128 @@
+.logout-trigger {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+}
+
+.logout-dialog-backdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 31, 44, .48);
+  padding: 20px;
+  backdrop-filter: blur(5px);
+  animation: logout-fade-in .16s ease both;
+}
+
+.logout-dialog {
+  position: relative;
+  width: min(420px, 100%);
+  border: 1px solid #e1eaf0;
+  border-radius: 20px;
+  background: #fff;
+  padding: 27px;
+  color: #23465b;
+  box-shadow: 0 25px 80px rgba(8, 31, 48, .24);
+  animation: logout-rise-in .2s ease both;
+}
+
+.logout-dialog-close {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border: 1px solid #e5edf2;
+  border-radius: 9px;
+  background: #fff;
+  color: #728898;
+  cursor: pointer;
+}
+
+.logout-dialog-icon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  border: 1px solid #f1dedd;
+  border-radius: 13px;
+  background: #fff4f3;
+  color: #bb5c56;
+}
+
+.logout-dialog h2 {
+  margin: 18px 0 8px;
+  color: #193b50;
+  font-size: 19px;
+  font-weight: 720;
+  letter-spacing: -.025em;
+}
+
+.logout-dialog p {
+  margin: 0;
+  color: #738795;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.logout-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 23px;
+}
+
+.logout-dialog-actions button {
+  min-height: 38px;
+  border-radius: 9px;
+  padding: 0 12px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 650;
+  transition: background .17s ease, transform .17s ease;
+}
+
+.logout-dialog-cancel {
+  border: 1px solid #dfe8ee;
+  background: #fff;
+  color: #577184;
+}
+
+.logout-dialog-cancel:hover {
+  background: #f5f9fb;
+}
+
+.logout-dialog-confirm {
+  border: 1px solid #b24742;
+  background: #b94d47;
+  color: #fff;
+}
+
+.logout-dialog-confirm:hover {
+  transform: translateY(-1px);
+  background: #a63e39;
+}
+
+@keyframes logout-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes logout-rise-in {
+  from { opacity: 0; transform: translateY(7px) scale(.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logout-dialog-backdrop,
+  .logout-dialog {
+    animation-duration: .01ms;
+  }
+}
