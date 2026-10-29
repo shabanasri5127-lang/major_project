@@ -39,6 +39,12 @@ const pageTitles = {
   "/doctor-payments": "Payment history",
 };
 
+const sectionTitles = {
+  "#appointments": "Appointments",
+  "#patients": "Patients",
+  "#analytics": "Analytics",
+};
+
 const initials = (name = "") => name
   .split(/\s+/)
   .filter(Boolean)
@@ -63,11 +69,16 @@ const DoctorPortalLayout = ({ children }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [lightTheme, setLightTheme] = useState(() => localStorage.getItem("doctor-portal-theme") === "light");
-  const pageTitle = pageTitles[location.pathname] || "Doctor workspace";
+  const pageTitle = sectionTitles[location.hash] || pageTitles[location.pathname] || "Doctor workspace";
 
   useEffect(() => {
     localStorage.setItem("doctor-portal-theme", lightTheme ? "light" : "dark");
   }, [lightTheme]);
+
+  useEffect(() => {
+    if (!location.hash) return;
+    document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [location.hash, location.pathname]);
 
   const searchAppointments = (event) => {
     event.preventDefault();

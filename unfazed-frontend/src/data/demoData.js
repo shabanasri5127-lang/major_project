@@ -3,6 +3,8 @@ import doctorTwoImage from "../assets/doc2.png";
 import doctorThreeImage from "../assets/doc3.png";
 import doctorFourImage from "../assets/doc4.png";
 import doctorFiveImage from "../assets/doc5.png";
+import patientOneImage from "../assets/demo-patient-one.svg";
+import patientTwoImage from "../assets/demo-patient-two.svg";
 
 const dateOffset = (offset) => {
   const date = new Date();
@@ -41,10 +43,11 @@ const patientProfiles = [
   ["demo-patient-12", "Meera Joshi", "meera.joshi@example.com", "Annual health review"],
 ];
 
-export const DEMO_PATIENTS = patientProfiles.map(([_id, name, email, medicalHistory]) => ({
+export const DEMO_PATIENTS = patientProfiles.map(([_id, name, email, medicalHistory], index) => ({
   _id,
   name,
   email,
+  image: index % 2 === 0 ? patientOneImage : patientTwoImage,
   medicalHistory,
 }));
 
@@ -71,7 +74,7 @@ export const DEMO_APPOINTMENTS = appointmentSeed.map(([patientIndex, doctorIndex
   const doctor = DEMO_DOCTORS[doctorIndex];
   return {
     _id: `demo-appointment-${index + 1}`,
-    patient: { _id: patient._id, name: patient.name, email: patient.email, medicalHistory: patient.medicalHistory },
+    patient: { _id: patient._id, name: patient.name, email: patient.email, image: patient.image, medicalHistory: patient.medicalHistory },
     doctor: { _id: doctor._id, name: doctor.name, speciality: doctor.speciality, image: doctor.image, fees: doctor.fees },
     date: dateOffset(offset),
     time,

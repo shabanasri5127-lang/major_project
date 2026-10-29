@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import {
   Bell,
   CalendarDays,
@@ -123,8 +123,9 @@ const PatientPortalLayout = ({ children }) => {
   };
 
   return (
-    <PatientPortalProvider value={portalValue}>
-      <div className={`patient-portal-shell patient-theme-${appliedTheme}`}>
+    <MotionConfig reducedMotion="user">
+      <PatientPortalProvider value={portalValue}>
+        <div className={`patient-portal-shell patient-theme-${appliedTheme}`}>
         <AnimatePresence>
           {sidebarOpen && (
             <motion.button
@@ -219,10 +220,10 @@ const PatientPortalLayout = ({ children }) => {
               <motion.div
                 key={`${location.pathname}${location.search}`}
                 className="patient-route-transition"
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -5 }}
-                transition={{ duration: 0.18, ease: "easeOut" }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.24, ease: "easeOut" }}
               >
                 {children || <Outlet />}
               </motion.div>
@@ -238,14 +239,16 @@ const PatientPortalLayout = ({ children }) => {
               initial={{ opacity: 0, y: -12, scale: .97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -8 }}
+              transition={{ type: "spring", stiffness: 360, damping: 28 }}
             >
               <ShieldCheck size={17} />{toast.message}
               <button type="button" aria-label="Dismiss notification" onClick={() => setToast(null)}><X size={15} /></button>
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
-    </PatientPortalProvider>
+        </div>
+      </PatientPortalProvider>
+    </MotionConfig>
   );
 };
 

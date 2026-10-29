@@ -3,6 +3,15 @@ const bcrypt = require("bcrypt");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 
+const isDatabaseUnavailable = (error) => [
+  "MongoNetworkError",
+  "MongoNetworkTimeoutError",
+  "MongoServerSelectionError",
+  "MongooseServerSelectionError",
+].includes(error.name) || (
+  error.name === "MongooseError" && error.message.includes("buffering timed out")
+);
+
 const toPublicUser = (user) => ({
   id: user._id,
   name: user.name,
@@ -110,6 +119,12 @@ const registerUser = async (req, res) => {
     });
   } catch (error) {
     console.error("User registration failed:", error);
+    if (isDatabaseUnavailable(error)) {
+      return res.status(503).json({
+        success: false,
+        message: "Database is unavailable. Check MongoDB Atlas Network Access and try again.",
+      });
+    }
     return res.status(500).json({
       success: false,
       message: "Unable to register user",
@@ -156,6 +171,12 @@ const loginUser = async (req, res) => {
     });
   } catch (error) {
     console.error("User login failed:", error);
+    if (isDatabaseUnavailable(error)) {
+      return res.status(503).json({
+        success: false,
+        message: "Database is unavailable. Check MongoDB Atlas Network Access and try again.",
+      });
+    }
     return res.status(500).json({
       success: false,
       message: "Unable to log in",

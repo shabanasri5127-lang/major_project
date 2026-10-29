@@ -12,7 +12,6 @@ const { authenticate } = require("../middleware/auth");
 const userRouter = express.Router();
 
 userRouter.use((req, res, next) => {
-  if (["/register", "/login"].includes(req.path)) return next();
   if (mongoose.connection.readyState !== 1) {
     return res.status(503).json({
       success: false,

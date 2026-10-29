@@ -11,7 +11,7 @@
 }
 
 .patient-portal-shell {
-  --patient-shell-bg: #f3f7fb;
+  --patient-shell-bg: #f6f8fd;
   --patient-shell-surface: rgba(255, 255, 255, .86);
   --patient-shell-sidebar: rgba(255, 255, 255, .86);
   --patient-shell-card: rgba(255, 255, 255, .76);
@@ -25,8 +25,11 @@
   min-height: 100vh;
   overflow: clip;
   background:
-    radial-gradient(ellipse at 86% 0%, rgba(35, 155, 176, .08), transparent 33rem),
-    var(--patient-shell-bg);
+    radial-gradient(ellipse at 8% 8%, rgba(89, 157, 238, .17), transparent 34rem),
+    radial-gradient(ellipse at 88% 16%, rgba(83, 198, 185, .15), transparent 32rem),
+    radial-gradient(ellipse at 78% 92%, rgba(185, 133, 225, .13), transparent 36rem),
+    radial-gradient(ellipse at 18% 82%, rgba(247, 183, 132, .12), transparent 31rem),
+    linear-gradient(135deg, #f8faff 0%, #f1f8fb 52%, #faf6fc 100%);
   color: var(--patient-shell-ink);
   transition: background .25s ease, color .25s ease;
 }
@@ -42,7 +45,10 @@
   --patient-shell-accent: #54c7ce;
   --patient-shell-accent-soft: rgba(58, 181, 190, .12);
   background:
-    radial-gradient(ellipse at 88% -8%, rgba(28, 135, 157, .14), transparent 34rem),
+    radial-gradient(ellipse at 8% 8%, rgba(49, 114, 199, .22), transparent 36rem),
+    radial-gradient(ellipse at 90% 17%, rgba(27, 154, 143, .18), transparent 34rem),
+    radial-gradient(ellipse at 78% 92%, rgba(127, 75, 170, .17), transparent 37rem),
+    radial-gradient(ellipse at 15% 84%, rgba(174, 106, 75, .12), transparent 32rem),
     var(--patient-shell-bg);
 }
 
@@ -69,6 +75,12 @@
   font-weight: 800;
   letter-spacing: -.04em;
   text-decoration: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.patient-topbar-user:hover {
+  transform: translateY(-1px);
+  opacity: .84;
 }
 
 .patient-brand > span:last-of-type > span {
@@ -86,6 +98,12 @@
   background: linear-gradient(145deg, #0b8491, #46b9bc);
   color: white;
   box-shadow: 0 8px 18px rgba(8, 126, 139, .2);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.patient-brand:hover .patient-brand-mark {
+  transform: rotate(-8deg) scale(1.06);
+  box-shadow: 0 10px 24px rgba(8, 126, 139, .28);
 }
 
 .patient-sidebar-close {
@@ -200,6 +218,11 @@
   transform: translateX(2px);
   background: var(--patient-shell-accent-soft);
   color: var(--patient-shell-accent);
+  transition: transform .2s ease;
+}
+
+.patient-notifications-list article:hover > span {
+  transform: rotate(-6deg) scale(1.06);
 }
 
 .patient-nav-link.active {
@@ -217,6 +240,16 @@
   border-radius: 4px;
   background: var(--patient-shell-accent);
   content: "";
+  transform-origin: center;
+  animation: patient-nav-indicator .24s ease-out both;
+}
+
+.patient-nav-link svg {
+  transition: transform .2s ease, color .2s ease;
+}
+
+.patient-nav-link:hover svg {
+  transform: translateX(2px);
 }
 
 .patient-nav-link > svg:first-child {
@@ -392,11 +425,18 @@
   border-radius: 10px;
   color: var(--patient-shell-muted);
   text-decoration: none;
+  transition: color .18s ease, background .18s ease, transform .18s ease, border-color .18s ease;
 }
 
 .patient-topbar-icon:hover {
+  transform: translateY(-2px);
+  border-color: var(--patient-shell-accent);
   background: var(--patient-shell-accent-soft);
   color: var(--patient-shell-accent);
+}
+
+.patient-topbar-icon:active {
+  transform: scale(.94);
 }
 
 .patient-topbar-icon > span {
@@ -481,6 +521,32 @@
   background: var(--patient-shell-card);
   box-shadow: 0 12px 32px rgba(20, 54, 76, .055);
   backdrop-filter: blur(16px);
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.patient-extra-panel:hover,
+.patient-extra-empty:hover {
+  transform: translateY(-2px);
+  border-color: rgba(8, 126, 139, .24);
+  box-shadow: 0 16px 36px rgba(20, 54, 76, .09);
+}
+
+.patient-extra-heading {
+  animation: patient-card-enter .42s ease both;
+}
+
+.patient-extra-panel,
+.patient-extra-empty {
+  animation: patient-card-enter .45s ease both;
+}
+
+.patient-extra-two-column > :nth-child(2),
+.patient-settings-grid > :nth-child(2) {
+  animation-delay: .08s;
+}
+
+.patient-settings-grid > :nth-child(3) {
+  animation-delay: .16s;
 }
 
 .patient-theme-dark .patient-dashboard,
@@ -1007,7 +1073,18 @@
   gap: 12px;
   border-bottom: 1px solid var(--patient-shell-line);
   padding: 14px 0;
+  animation: patient-card-enter .35s ease both;
+  transition: padding .18s ease, color .18s ease;
 }
+
+.patient-notifications-list article:hover {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.patient-notifications-list article:nth-child(2) { animation-delay: .06s; }
+.patient-notifications-list article:nth-child(3) { animation-delay: .12s; }
+.patient-notifications-list article:nth-child(4) { animation-delay: .18s; }
 
 .patient-notifications-list article:first-child {
   padding-top: 0;
@@ -1083,6 +1160,10 @@
   grid-template-columns: 44px minmax(0, 1fr);
   align-items: start;
   gap: 12px;
+}
+
+.patient-settings-card:hover .patient-settings-icon {
+  transform: rotate(-5deg) scale(1.06);
 }
 
 .patient-settings-card > div:nth-child(2) h2 {
@@ -1170,6 +1251,16 @@
 @keyframes patient-route-enter {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes patient-card-enter {
+  from { opacity: 0; translate: 0 10px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes patient-nav-indicator {
+  from { transform: scaleY(.25); }
+  to { transform: scaleY(1); }
 }
 
 @media (max-width: 1080px) {

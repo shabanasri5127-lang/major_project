@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
+import ProfilePhotoPicker from "../components/ProfilePhotoPicker";
 
 const getProfileForm = (user) => ({
   name: user?.name || "",
@@ -137,7 +138,8 @@ const DoctorProfile = () => {
           </div>
           <div className="doctor-profile-form-grid">
             <label className="doctor-form-field"><span>Full name</span><input name="name" value={form.name} onChange={changeField} required /></label>
-            <label className="doctor-form-field"><span>Profile image URL</span><input name="image" value={form.image} onChange={changeField} type="url" placeholder="https://…" /></label>
+            <label className="doctor-form-field"><span>Profile image URL (optional)</span><input name="image" value={form.image} onChange={changeField} type="text" placeholder="https://…" /></label>
+            <div className="doctor-form-field-full"><ProfilePhotoPicker image={form.image} name={form.name} onChange={(image) => setForm((current) => ({ ...current, image }))} /></div>
             <label className="doctor-form-field"><span>Speciality</span><input name="speciality" value={form.speciality} onChange={changeField} /></label>
             <label className="doctor-form-field"><span>Qualification</span><input name="qualification" value={form.qualification} onChange={changeField} placeholder="e.g. MBBS, MD" /></label>
             <label className="doctor-form-field"><span>Experience</span><input name="experience" value={form.experience} onChange={changeField} placeholder="e.g. 8 years" /></label>

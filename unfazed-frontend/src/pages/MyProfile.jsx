@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/useAuth";
+import ProfilePhotoPicker from "../components/ProfilePhotoPicker";
 
 const MyProfile = () => {
   const { user, updateProfile } = useAuth();
@@ -58,13 +59,18 @@ const MyProfile = () => {
 
             {isEditing ? (
               <form onSubmit={saveProfile} className="space-y-3">
+                <ProfilePhotoPicker
+                  image={form.image}
+                  name={form.name}
+                  onChange={(image) => setForm((current) => ({ ...current, image }))}
+                />
                 {[
                   ["name", "Full name"],
                   ["phone", "Phone"],
                   ["address", "Address"],
                   ["gender", "Gender"],
                   ["dob", "Date of birth"],
-                  ["image", "Profile image URL"],
+                  ["image", "Profile image URL (optional)"],
                 ].map(([field, label]) => (
                   <label key={field} className="block">
                     <span className="mb-1 block text-sm font-medium">{label}</span>

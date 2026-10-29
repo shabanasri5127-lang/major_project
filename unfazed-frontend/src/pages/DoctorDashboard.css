@@ -1,8 +1,8 @@
 .doctor-dashboard {
-  --doctor-bg: #111215;
-  --doctor-surface: rgba(26, 28, 33, .84);
-  --doctor-surface-raised: rgba(34, 36, 42, .78);
-  --doctor-line: rgba(255, 255, 255, .075);
+  --doctor-bg: #0a0b0c;
+  --doctor-surface: rgba(27, 28, 31, 0.84);
+  --doctor-surface-raised: rgba(25, 26, 30, 0.78);
+  --doctor-line: rgba(62, 58, 58, 0.075);
   --doctor-muted: #92959f;
   --doctor-text: #f3f3f5;
   --doctor-soft: #c3c4ca;
@@ -401,6 +401,11 @@
   background: linear-gradient(145deg, rgba(34, 36, 42, .85), rgba(24, 26, 30, .88));
   box-shadow: 0 12px 35px rgba(0, 0, 0, .13), inset 0 1px rgba(255, 255, 255, .025);
   backdrop-filter: blur(18px);
+}
+
+.doctor-appointments-panel,
+.doctor-patients-panel {
+  scroll-margin-top: 85px;
 }
 
 .doctor-stat-card {

@@ -146,8 +146,9 @@ const PatientDashboard = () => {
             key={label}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.06, duration: 0.3 }}
-            whileHover={{ y: -3 }}
+            transition={{ delay: index * 0.07, duration: 0.38, ease: "easeOut" }}
+            whileHover={{ y: -5, scale: 1.015 }}
+            whileTap={{ scale: 0.985 }}
           >
             <span className="patient-metric-icon"><Icon size={19} /></span>
             <div className="patient-metric-value">{appointmentsLoading && index < 3 ? "—" : doctorsLoading && index === 3 ? "—" : value}</div>
